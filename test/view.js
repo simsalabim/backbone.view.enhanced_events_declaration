@@ -21,20 +21,20 @@ $(document).ready(function() {
     view.increment = function(){ counter1++; };
     view.$el.on('click', function(){ counter2++; });
 
-    var events = {'click #test': 'increment increment'};
+    var events = {'click #test': 'increment increment increment'};
 
     view.delegateEvents(events);
     view.$('#test').trigger('click');
-    equal(counter1, 2);
+    equal(counter1, 3);
     equal(counter2, 1);
 
     view.$('#test').trigger('click');
-    equal(counter1, 4);
+    equal(counter1, 6);
     equal(counter2, 2);
 
     view.delegateEvents(events);
     view.$('#test').trigger('click');
-    equal(counter1, 6);
+    equal(counter1, 9);
     equal(counter2, 3);
   });
 

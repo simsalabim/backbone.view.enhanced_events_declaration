@@ -26,8 +26,7 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
             }
           }
         } else {
-          method = _.compact(method.match(delegateEventSplitter));
-          method.shift();
+          method = _.compact(method.split(/\s/));
           for (var i in method) {
             if (!this[method[i]]) continue;
             this.bindMethod(this[method[i]], eventName, selector);
